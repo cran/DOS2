@@ -1,0 +1,18 @@
+Package: DOS2
+Type: Package
+Title: Design of Observational Studies, Companion to the Second Edition
+Version: 0.5.2
+Author: Paul R. Rosenbaum
+Maintainer: Paul Rosenbaum <rosenbaum@wharton.upenn.edu>
+Description: Contains data sets, examples and software from the Second Edition of "Design of Observational Studies"; see Rosenbaum, P.R. (2010)  <doi:10.1007/978-1-4419-1213-8>.
+Depends: R (>= 3.5.0)
+Imports: stats, MASS, sensitivity2x2xk, graphics, sensitivitymult,
+        sensitivitymv, senstrat
+Suggests: optmatch, DiPs
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+NeedsCompilation: no
+Packaged: 2019-09-10 18:58:21 UTC; rosenbap
+Repository: CRAN
+Date/Publication: 2019-09-16 10:30:05 UTC

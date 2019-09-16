@@ -1,0 +1,21 @@
+crosscut <-
+function(x,y,ct=.25,gamma=1,LS=FALSE){
+  stopifnot(is.vector(x))
+  stopifnot(is.vector(y))
+  stopifnot(length(x)==length(y))
+  stopifnot(is.vector(ct)&(length(ct)==1)&(ct>0)&(ct<=.5))
+  stopifnot(is.vector(gamma)&(length(gamma)==1)&(gamma>=1))
+  stopifnot(is.logical(LS))
+	qx1<-stats::quantile(x,ct)
+	qx2<-stats::quantile(x,1-ct)
+	qy1<-stats::quantile(y,ct)
+	qy2<-stats::quantile(y,1-ct)
+	use<-((x<=qx1)|(x>=qx2))&((y<=qy1)|(y>=qy2))
+	tb<-table(x[use]>=qx2,y[use]>=qy2)
+	dimnames(tb)<-list(x=c("<=",">="),y=c("<=",">="))
+	if (LS) o<-sensitivity2x2xk::mhLS(tb,Gamma=gamma)
+	else o<-sensitivity2x2xk::mh(tb,Gamma=gamma)
+	quantiles<-c(qx1,qx2,qy1,qy2)
+	names(quantiles)<-c("x1","x2","y1","y2")
+	list(quantiles=quantiles,table=tb,output=o)
+}

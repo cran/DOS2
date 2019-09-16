@@ -1,0 +1,8 @@
+exportPattern("^[[:alpha:]]+")
+importFrom("stats", "pnorm", "qnorm", "sd", "var", "uniroot", "quantile", "qchisq", "wilcox.test")
+importFrom("graphics", "abline", "plot", "points", "boxplot")
+importFrom("MASS", "ginv")
+importFrom("sensitivity2x2xk", "mh", "mhLS")
+importFrom("sensitivitymult", "senm", "senmCI", "separable1v")
+importFrom("sensitivitymv", "truncatedP")
+importFrom("senstrat", "senstrat", "hodgeslehmann")
